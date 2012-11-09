@@ -1,0 +1,11 @@
+how your solution works, 
+
+why you solved it in the way you did, and 
+
+what limitations/issues you see in your solution
+
+(and how things could be improved). 
+
+Indicate if you identified any trade-offs to be made during implementation, 
+
+and why you decided to resolve them as you did.
