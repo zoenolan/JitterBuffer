@@ -1,11 +1,24 @@
 // JitterBuffer.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+// Interfaces
+#include "IDecoder.h"
+#include "IRenderer.h"
+#include "IJitterBuffer.h"
 
+// Mocks
+#include "CMockDecoder.h"
+#include "CMockRenderer.h"
 
-int _tmain(int argc, _TCHAR* argv[])
+// Class being tested
+#include "CJitterBuffer.h"
+
+int main(int argc, char* argv[])
 {
+	IDecoder*  pDecoder          = new CMockDecoder();
+	IRenderer* pRenderer         = new CMockRenderer();
+
+	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
 	return 0;
 }
 

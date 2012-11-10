@@ -1,3 +1,6 @@
+#ifndef _I_RENDERER_H
+#define _I_RENDERER_H
+
 class IRenderer
 {
 public:
@@ -6,7 +9,9 @@ public:
 	the buffer will be copied internally so can be deleted/reused as soon as this call
 	is completed.
 	*/
-	virtual void RenderFrame(const char* buffer, int length) = 0;
+	virtual void RenderFrame(const char* pBuffer, const unsigned int length) = 0;
 	
 	virtual ~IRenderer() {}
 };
+
+#endif // _I_RENDERER_H
