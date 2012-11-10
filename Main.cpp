@@ -19,6 +19,12 @@ int main(int argc, char* argv[])
 	IRenderer* pRenderer         = new CMockRenderer();
 
 	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
+
+	delete (pJitterBuffer);
+
+	delete (pRenderer);
+	delete (pDecoder);
+
 	return 0;
 }
 
