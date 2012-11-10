@@ -87,7 +87,7 @@
     <ClCompile Include="CJitterBuffer.cpp" />
     <ClCompile Include="CMockDecoder.cpp" />
     <ClCompile Include="CMockRenderer.cpp" />
-    <ClCompile Include="JitterBuffer.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
