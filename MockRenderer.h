@@ -1,7 +1,7 @@
 #ifndef _C_MOCK_RENDERER_H
 #define _C_MOCK_RENDERER_H
 
-#include "IRenderer.h"
+#include "Renderer.h"
 
 class CMockRenderer: public IRenderer
 {

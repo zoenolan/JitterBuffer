@@ -2,16 +2,16 @@
 //
 
 // Interfaces
-#include "IDecoder.h"
-#include "IRenderer.h"
+#include "Decoder.h"
+#include "Renderer.h"
 #include "IJitterBuffer.h"
 
 // Mocks
-#include "CMockDecoder.h"
-#include "CMockRenderer.h"
+#include "MockDecoder.h"
+#include "MockRenderer.h"
 
 // Class being tested
-#include "CJitterBuffer.h"
+#include "JitterBuffer.h"
 
 int main(int argc, char* argv[])
 {

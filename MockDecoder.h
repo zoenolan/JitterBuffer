@@ -1,7 +1,7 @@
 #ifndef _C_MOCK_DECODER_H
 #define _C_MOCK_DECODER_H
 
-#include "IDecoder.h"
+#include "Decoder.h"
 
 class CMockDecoder: public IDecoder
 {

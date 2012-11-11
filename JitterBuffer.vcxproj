@@ -75,18 +75,19 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CJitterBuffer.h" />
-    <ClInclude Include="CMockDecoder.h" />
-    <ClInclude Include="CMockRenderer.h" />
-    <ClInclude Include="IDecoder.h" />
+    <ClInclude Include="JitterBuffer.h" />
+    <ClInclude Include="MockDecoder.h" />
+    <ClInclude Include="MockRenderer.h" />
+    <ClInclude Include="FrameFragments.h" />
+    <ClInclude Include="Decoder.h" />
     <ClInclude Include="IJitterBuffer.h" />
-    <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CJitterBuffer.cpp" />
-    <ClCompile Include="CMockDecoder.cpp" />
-    <ClCompile Include="CMockRenderer.cpp" />
+    <ClCompile Include="JitterBuffer.cpp" />
+    <ClCompile Include="MockDecoder.cpp" />
+    <ClCompile Include="MockRenderer.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

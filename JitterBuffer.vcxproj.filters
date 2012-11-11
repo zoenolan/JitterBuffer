@@ -17,36 +17,39 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IDecoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IJitterBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CJitterBuffer.h">
+    <ClInclude Include="FrameFragments.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderer.h">
+    <ClInclude Include="MockDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CMockDecoder.h">
+    <ClInclude Include="MockRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CMockRenderer.h">
+    <ClInclude Include="JitterBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Decoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CMockRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CJitterBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CMockDecoder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MockDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MockRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JitterBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

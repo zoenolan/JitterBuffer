@@ -1,10 +1,10 @@
 
 #include <assert.h>
 
-#include "IDecoder.h"
-#include "IRenderer.h"
+#include "Decoder.h"
+#include "Renderer.h"
 
-#include "CJitterBuffer.h"
+#include "JitterBuffer.h"
 
 CJitterBuffer::CJitterBuffer(IDecoder* pDecoder, IRenderer* pRenderer)
 : mpDecoder(pDecoder),

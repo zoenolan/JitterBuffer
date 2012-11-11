@@ -1,6 +1,6 @@
 #include <assert.h>
 
-#include "CMockRenderer.h"
+#include "MockRenderer.h"
 
 void CMockRenderer::RenderFrame(const char* pBuffer, const unsigned int length)
 {
