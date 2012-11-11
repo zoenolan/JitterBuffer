@@ -15,10 +15,20 @@
 
 int main(int argc, char* argv[])
 {
+	char Buffer[1024];
+
 	IDecoder*  pDecoder          = new CMockDecoder();
 	IRenderer* pRenderer         = new CMockRenderer();
 
 	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
+
+	for (unsigned int frame = 0; frame > 10; frame++)
+	{
+		for (unsigned int fragment = 0; fragment > 10; fragment++)
+		{
+			pJitterBuffer->ReceivePacket(Buffer, 1024, frame, fragment, 10);
+		}
+	}
 
 	delete (pJitterBuffer);
 
