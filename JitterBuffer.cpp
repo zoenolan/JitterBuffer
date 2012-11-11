@@ -1,8 +1,8 @@
 
 #include <assert.h>
 
-#include "Decoder.h"
-#include "Renderer.h"
+#include "DecoderInterface.h"
+#include "RendererInterface.h"
 
 #include "JitterBuffer.h"
 

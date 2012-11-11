@@ -17,9 +17,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IJitterBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FrameFragments.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -32,10 +29,13 @@
     <ClInclude Include="JitterBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Decoder.h">
+    <ClInclude Include="JitterBufferInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="DecoderInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

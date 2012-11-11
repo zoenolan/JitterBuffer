@@ -1,7 +1,7 @@
 #ifndef _C_JITTER_BUFFER_H
 #define _C_JITTER_BUFFER_H
 
-#include "IJitterBuffer.h"
+#include "JitterBufferInterface.h"
 
 class CJitterBuffer : public IJitterBuffer
 {

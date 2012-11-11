@@ -2,9 +2,9 @@
 //
 
 // Interfaces
-#include "Decoder.h"
-#include "Renderer.h"
-#include "IJitterBuffer.h"
+#include "DecoderInterface.h"
+#include "RendererInterface.h"
+#include "JitterBufferInterface.h"
 
 // Mocks
 #include "MockDecoder.h"
