@@ -9,6 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{7b9afdf2-3b87-4c40-a0ef-07d69cdd2013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JitterBuffer">
+      <UniqueIdentifier>{a191bd60-461c-4ea2-ab51-298b7a652f74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -17,40 +23,25 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FrameFragments.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MockDecoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MockRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="JitterBuffer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="RendererInterface.h">
+      <Filter>Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="JitterBufferInterface.h">
-      <Filter>Header Files</Filter>
+      <Filter>Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="DecoderInterface.h">
-      <Filter>Header Files</Filter>
+      <Filter>Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="RendererInterface.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="JitterBuffer.h">
+      <Filter>JitterBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MockDecoder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MockRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="JitterBuffer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>JitterBuffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -17,16 +17,12 @@ public:
 	with the same frameNumber
 	*/
 	void ReceivePacket(const char*        pBuffer,
-					   const unsigned int length,
-					   const unsigned int frameNumber,
-					   const unsigned int fragmentNumber,
-					   const unsigned int numFragmentsInThisFrame);
+					   int length,
+					   int frameNumber,
+					   int fragmentNumber,
+					   int numFragmentsInThisFrame);
 	
 	~CJitterBuffer();
-
-private:
-	IDecoder*  mpDecoder;
-	IRenderer* mpRenderer;
 };
 
 #endif // _C_JITTER_BUFFER_H

@@ -76,9 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JitterBuffer.h" />
-    <ClInclude Include="MockDecoder.h" />
-    <ClInclude Include="MockRenderer.h" />
-    <ClInclude Include="FrameFragments.h" />
     <ClInclude Include="DecoderInterface.h" />
     <ClInclude Include="JitterBufferInterface.h" />
     <ClInclude Include="RendererInterface.h" />
@@ -86,8 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JitterBuffer.cpp" />
-    <ClCompile Include="MockDecoder.cpp" />
-    <ClCompile Include="MockRenderer.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

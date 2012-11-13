@@ -15,11 +15,11 @@ public:
 	@param numFragmentsInThisFrame - is guaranteed to be identical for all fragments
 	with the same frameNumber
 	*/
-	virtual void ReceivePacket( const char*        pBuffer,
-								const unsigned int length,
-								const unsigned int frameNumber,
-								const unsigned int fragmentNumber,
-								const unsigned int numFragmentsInThisFrame) = 0;
+	virtual void ReceivePacket(const char* buffer,
+							   int length,
+							   int frameNumber,
+							   int fragmentNumber,
+							   int numFragmentsInThisFrame) = 0;
 	
 	virtual ~IJitterBuffer() {}
 };

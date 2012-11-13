@@ -7,7 +7,7 @@ public:
 	/*
 	Returns the size of the data written to the outputBuffer, will be no more than 1mb.
 	*/
-	virtual unsigned int DecodeFrame(const char* pInputBuffer, const unsigned int length, char* pOutputBuffer) = 0;
+	virtual int DecodeFrame(const char* buffer, int length, char* outputBuffer) = 0;
 	
 	virtual ~IDecoder() {}
 };

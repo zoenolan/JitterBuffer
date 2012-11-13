@@ -9,7 +9,7 @@ public:
 	the buffer will be copied internally so can be deleted/reused as soon as this call
 	is completed.
 	*/
-	virtual void RenderFrame(const char* pBuffer, const unsigned int length) = 0;
+	virtual void RenderFrame(const char* buffer, int length) = 0;
 	
 	virtual ~IRenderer() {}
 };
