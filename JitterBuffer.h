@@ -23,6 +23,8 @@ public:
 					   int numFragmentsInThisFrame);
 	
 	~CJitterBuffer();
+
+private:
 };
 
 #endif // _C_JITTER_BUFFER_H
