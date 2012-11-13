@@ -15,15 +15,6 @@
     <Filter Include="JitterBuffer">
       <UniqueIdentifier>{a191bd60-461c-4ea2-ab51-298b7a652f74}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JitterBuffer\BitstreamQueue">
-      <UniqueIdentifier>{faa135af-b5a9-40d5-acdd-7f14e9e8c229}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="JitterBuffer\DecoderQueue">
-      <UniqueIdentifier>{c4ccb981-c46a-4cae-8e05-e49b4d3839c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="JitterBuffer\RendererQueue">
-      <UniqueIdentifier>{c8a2f692-fecc-4033-8630-2a734e95bb33}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -44,15 +35,6 @@
     <ClInclude Include="JitterBuffer.h">
       <Filter>JitterBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="BitstreamQueue.h">
-      <Filter>JitterBuffer\BitstreamQueue</Filter>
-    </ClInclude>
-    <ClInclude Include="DecoderQueue.h">
-      <Filter>JitterBuffer\DecoderQueue</Filter>
-    </ClInclude>
-    <ClInclude Include="RendererQueue.h">
-      <Filter>JitterBuffer\RendererQueue</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -60,15 +42,6 @@
     </ClCompile>
     <ClCompile Include="JitterBuffer.cpp">
       <Filter>JitterBuffer</Filter>
-    </ClCompile>
-    <ClCompile Include="BitstreamQueue.cpp">
-      <Filter>JitterBuffer\BitstreamQueue</Filter>
-    </ClCompile>
-    <ClCompile Include="DecoderQueue.cpp">
-      <Filter>JitterBuffer\DecoderQueue</Filter>
-    </ClCompile>
-    <ClCompile Include="RendererQueue.cpp">
-      <Filter>JitterBuffer\RendererQueue</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
