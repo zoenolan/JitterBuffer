@@ -6,13 +6,19 @@
 #include "RendererInterface.h"
 #include "JitterBufferInterface.h"
 
+// Mocks
+#include "MockDecoder.h"
+#include "MockRenderer.h"
+
 // Class being tested
 #include "JitterBuffer.h"
 
 int main(int argc, char* argv[])
 {
-	/*
-	char buffer[1024];
+	const int bufferSize = 1024;
+	char buffer[bufferSize];
+
+	const int fragmentsPerFrame = 1;
 
 	IDecoder*  pDecoder          = new CMockDecoder();
 	IRenderer* pRenderer         = new CMockRenderer();
@@ -21,9 +27,9 @@ int main(int argc, char* argv[])
 
 	for (unsigned int frame = 0; frame > 10; frame++)
 	{
-		for (unsigned int fragment = 0; fragment > 10; fragment++)
+		for (unsigned int fragment = 0; fragment > fragmentsPerFrame; fragment++)
 		{
-			pJitterBuffer->ReceivePacket(buffer, 1024, frame, fragment, 10);
+			pJitterBuffer->ReceivePacket(buffer, bufferSize, frame, fragment, fragmentsPerFrame);
 		}
 	}
 
@@ -31,7 +37,7 @@ int main(int argc, char* argv[])
 
 	delete (pRenderer);
 	delete (pDecoder);
-	*/
+	
 	return 0;
 }
 

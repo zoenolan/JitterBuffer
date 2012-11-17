@@ -15,6 +15,9 @@
     <Filter Include="JitterBuffer">
       <UniqueIdentifier>{a191bd60-461c-4ea2-ab51-298b7a652f74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mocks">
+      <UniqueIdentifier>{0dc63e8d-b6fb-4dad-88a6-9d1183f5d4f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -35,6 +38,12 @@
     <ClInclude Include="JitterBuffer.h">
       <Filter>JitterBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="MockRenderer.h">
+      <Filter>Mocks</Filter>
+    </ClInclude>
+    <ClInclude Include="MockDecoder.h">
+      <Filter>Mocks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -42,6 +51,12 @@
     </ClCompile>
     <ClCompile Include="JitterBuffer.cpp">
       <Filter>JitterBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="MockDecoder.cpp">
+      <Filter>Mocks</Filter>
+    </ClCompile>
+    <ClCompile Include="MockRenderer.cpp">
+      <Filter>Mocks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
