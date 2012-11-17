@@ -11,7 +11,11 @@ public:
 	void Copy(const char* pBuffer, const int length);
 
 private:
-	size_t mAllocatedSize;
+	void cleanUpBuffer();
+
+	int mAllocatedSize;
+	int mCurrentSize;
+
 	char*  mpBuffer;
 };
 

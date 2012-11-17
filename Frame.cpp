@@ -30,8 +30,9 @@ void CFrame::AddFragment(const char* pBuffer,
 	const bool bFragmentNotSeenAlready = !mSeenFragment[fragmentNumber]; 
 
 	assert(bFragmentsRemaining);
+	assert(bFragmentNotSeenAlready);
 
-	if (bFragmentsRemaining)
+	if (bFragmentsRemaining && bFragmentNotSeenAlready)
 	{
 		mFragments[fragmentNumber].Copy(pBuffer, length);
 		mSeenFragment[fragmentNumber] = true;
