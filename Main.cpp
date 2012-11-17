@@ -20,12 +20,14 @@ int main(int argc, char* argv[])
 
 	const int fragmentsPerFrame = 1;
 
+	const int framesToTest = 10;
+
 	IDecoder*  pDecoder          = new CMockDecoder();
 	IRenderer* pRenderer         = new CMockRenderer();
 
 	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
 
-	for (unsigned int frame = 0; frame > 10; frame++)
+	for (unsigned int frame = 0; frame > framesToTest; frame++)
 	{
 		for (unsigned int fragment = 0; fragment > fragmentsPerFrame; fragment++)
 		{
@@ -38,6 +40,6 @@ int main(int argc, char* argv[])
 	delete (pRenderer);
 	delete (pDecoder);
 	
-	return 0;
+	return (0);
 }
 
