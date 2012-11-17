@@ -3,6 +3,8 @@
 
 #include "JitterBufferInterface.h"
 
+#include "Frame.h"
+
 class CJitterBuffer : public IJitterBuffer
 {
 public:
@@ -25,6 +27,8 @@ public:
 	~CJitterBuffer();
 
 private:
+	CFrame      mFrame;
+
 	int			mLastCompletedFrameReceived; 
 
 	IDecoder*	mpDecoder;

@@ -18,6 +18,12 @@
     <Filter Include="Mocks">
       <UniqueIdentifier>{0dc63e8d-b6fb-4dad-88a6-9d1183f5d4f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JitterBuffer\Frame">
+      <UniqueIdentifier>{dab27f50-3c51-439d-a02e-2ac729efe451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JitterBuffer\LazyBuffer">
+      <UniqueIdentifier>{1349dd8b-7fd9-4870-bbe5-8c75e3ebc7aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -44,6 +50,12 @@
     <ClInclude Include="MockDecoder.h">
       <Filter>Mocks</Filter>
     </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>JitterBuffer\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="LazyBuffer.h">
+      <Filter>JitterBuffer\LazyBuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -57,6 +69,12 @@
     </ClCompile>
     <ClCompile Include="MockRenderer.cpp">
       <Filter>Mocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>JitterBuffer\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="LazyBuffer.cpp">
+      <Filter>JitterBuffer\LazyBuffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

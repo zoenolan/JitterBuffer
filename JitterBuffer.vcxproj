@@ -76,15 +76,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DecoderInterface.h" />
+    <ClInclude Include="Frame.h" />
     <ClInclude Include="JitterBuffer.h" />
     <ClInclude Include="JitterBufferInterface.h" />
+    <ClInclude Include="LazyBuffer.h" />
     <ClInclude Include="MockDecoder.h" />
     <ClInclude Include="MockRenderer.h" />
     <ClInclude Include="RendererInterface.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Frame.cpp" />
     <ClCompile Include="JitterBuffer.cpp" />
+    <ClCompile Include="LazyBuffer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MockDecoder.cpp" />
     <ClCompile Include="MockRenderer.cpp" />
