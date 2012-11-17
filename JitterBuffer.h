@@ -16,15 +16,17 @@ public:
 	@param numFragmentsInThisFrame - is guaranteed to be identical for all fragments
 	with the same frameNumber
 	*/
-	void ReceivePacket(const char*        pBuffer,
-					   int length,
-					   int frameNumber,
-					   int fragmentNumber,
-					   int numFragmentsInThisFrame);
+	void ReceivePacket(const char*	pBuffer,
+					   int			length,
+					   int			frameNumber,
+					   int			fragmentNumber,
+					   int			numFragmentsInThisFrame);
 	
 	~CJitterBuffer();
 
 private:
+	IDecoder*	mpDecoder;
+	IRenderer*	mpRenderer;
 };
 
 #endif // _C_JITTER_BUFFER_H

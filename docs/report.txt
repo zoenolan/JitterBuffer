@@ -9,3 +9,8 @@ what limitations/issues you see in your solution
 Indicate if you identified any trade-offs to be made during implementation, 
 
 and why you decided to resolve them as you did.
+
+
+Improving the Interfaces
+
+All the of the int parameters could be const as they are only inputs and since none of them can be negative having them as unsigned int would be better
