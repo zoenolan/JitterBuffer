@@ -25,6 +25,8 @@ public:
 	~CJitterBuffer();
 
 private:
+	int			mLastCompletedFrameReceived; 
+
 	IDecoder*	mpDecoder;
 	IRenderer*	mpRenderer;
 };

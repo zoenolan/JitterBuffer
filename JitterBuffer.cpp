@@ -8,8 +8,10 @@
 #include "JitterBuffer.h"
 
 CJitterBuffer::CJitterBuffer(IDecoder* pDecoder, IRenderer* pRenderer)
-: mpDecoder(pDecoder),
-  mpRenderer(pRenderer)
+: 
+	mLastCompletedFrameReceived(-1),
+	mpDecoder(pDecoder),
+	mpRenderer(pRenderer)
 {
 	assert(mpDecoder);
 	assert(mpRenderer);
@@ -24,13 +26,14 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 	const bool bValidPointer      = pBuffer != NULL;
 	const bool bValidBufferLength = length > 0;
 	const bool bFragmentInRange   = (fragmentNumber >= 0) && (fragmentNumber < numFragmentsInThisFrame);
+	const bool bFrameInRange      = frameNumber > mLastCompletedFrameReceived;
 
 	assert(bValidPointer);
 	assert(bValidBufferLength);
 	assert(bFragmentInRange);
 
 	// Sliently drop invalid packets, so the program doesn't crash
-	if ((bValidPointer) && (bValidBufferLength) && (bFragmentInRange))
+	if ((bValidPointer) && (bValidBufferLength) && (bFragmentInRange) && (bFrameInRange))
 	{
 
 	}
