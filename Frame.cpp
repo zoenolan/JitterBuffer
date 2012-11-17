@@ -1,25 +1,23 @@
 
 #include "Frame.h"
 
+#include <assert.h>
+
 CFrame::CFrame()
 :
-	mNumberOfFragments(0),
+	mFragmentsRemaining(0),
     mFrameSizeInBytes(0)
 {
-	Reset(1);
-}
-
-CFrame::~CFrame()
-{
-
 }
 
 void CFrame::Reset(const int numberOfFragments)
 {
-	mNumberOfFragments = numberOfFragments;
+	mFragmentsRemaining = numberOfFragments;
 
-	mReceivedFragments.reserve(mNumberOfFragments);
-	mFragments.reserve(mNumberOfFragments);
+	mSeenFragment.reserve(numberOfFragments);
+	std::fill(mSeenFragment.begin(), mSeenFragment.end(), false);
+
+	mFragments.reserve(numberOfFragments);
 
 	mFrameSizeInBytes = 0;
 }
@@ -28,12 +26,24 @@ void CFrame::AddFragment(const char* pBuffer,
 						 const int   length,
 					     const int   fragmentNumber)
 {
+	const bool bFragmentsRemaining     = mFragmentsRemaining > 0;
+	const bool bFragmentNotSeenAlready = !mSeenFragment[fragmentNumber]; 
 
+	assert(bFragmentsRemaining);
+
+	if (bFragmentsRemaining)
+	{
+		mFragments[fragmentNumber].Copy(pBuffer, length);
+		mSeenFragment[fragmentNumber] = true;
+
+		mFragmentsRemaining--;
+		mFrameSizeInBytes += length;
+	}
 }
 
 bool CFrame::Completed() const
 {
-	return (false);
+	return (0 == mFragmentsRemaining);
 }
 
 int  CFrame::SizeInBytes() const

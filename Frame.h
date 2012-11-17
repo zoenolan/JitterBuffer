@@ -10,8 +10,6 @@ class CFrame
 public:
 	CFrame();
 
-	~CFrame();
-
 	void Reset(const int numberOfFragments);
 
 	void AddFragment(const char* pBuffer,
@@ -25,9 +23,9 @@ public:
 	int  Combine(const char* pBuffer);
 
 private:
-	int					     mNumberOfFragments;
+	int					     mFragmentsRemaining;
 
-	std::vector<bool>        mReceivedFragments;
+	std::vector<bool>        mSeenFragment;
 	std::vector<CLazyBuffer> mFragments;
 
 	int					     mFrameSizeInBytes;
