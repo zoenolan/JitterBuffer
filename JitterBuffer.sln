@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JitterBuffer", "JitterBuffer.vcxproj", "{22E6A2E5-8072-45A0-B988-90AFD4B9D198}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Frame", "..\Frame\Frame.vcxproj", "{C7207B7D-EABA-4371-8B6B-B41D4620E438}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LazyBuffer", "LazyBuffer\LazyBuffer.vcxproj", "{EFA75F5D-7BF5-43B5-B140-A20C19088616}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderBuffer", "RenderBuffer\RenderBuffer.vcxproj", "{68096844-FC28-4B6D-A3A0-29F731F08281}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Frame", "Frame\Frame.vcxproj", "{C7207B7D-EABA-4371-8B6B-B41D4620E438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		{22E6A2E5-8072-45A0-B988-90AFD4B9D198}.Debug|Win32.Build.0 = Debug|Win32
 		{22E6A2E5-8072-45A0-B988-90AFD4B9D198}.Release|Win32.ActiveCfg = Release|Win32
 		{22E6A2E5-8072-45A0-B988-90AFD4B9D198}.Release|Win32.Build.0 = Release|Win32
-		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Debug|Win32.ActiveCfg = Debug|Win32
-		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Debug|Win32.Build.0 = Debug|Win32
-		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Release|Win32.ActiveCfg = Release|Win32
-		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Release|Win32.Build.0 = Release|Win32
 		{EFA75F5D-7BF5-43B5-B140-A20C19088616}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EFA75F5D-7BF5-43B5-B140-A20C19088616}.Debug|Win32.Build.0 = Debug|Win32
 		{EFA75F5D-7BF5-43B5-B140-A20C19088616}.Release|Win32.ActiveCfg = Release|Win32
@@ -31,6 +27,10 @@ Global
 		{68096844-FC28-4B6D-A3A0-29F731F08281}.Debug|Win32.Build.0 = Debug|Win32
 		{68096844-FC28-4B6D-A3A0-29F731F08281}.Release|Win32.ActiveCfg = Release|Win32
 		{68096844-FC28-4B6D-A3A0-29F731F08281}.Release|Win32.Build.0 = Release|Win32
+		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Debug|Win32.Build.0 = Debug|Win32
+		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Release|Win32.ActiveCfg = Release|Win32
+		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
