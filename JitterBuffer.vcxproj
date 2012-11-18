@@ -82,6 +82,7 @@
     <ClInclude Include="LazyBuffer.h" />
     <ClInclude Include="MockDecoder.h" />
     <ClInclude Include="MockRenderer.h" />
+    <ClInclude Include="RenderBuffer.h" />
     <ClInclude Include="RendererInterface.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -89,9 +90,10 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="JitterBuffer.cpp" />
     <ClCompile Include="LazyBuffer.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="JitterBufferTest.cpp" />
     <ClCompile Include="MockDecoder.cpp" />
     <ClCompile Include="MockRenderer.cpp" />
+    <ClCompile Include="RenderBuffer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,14 +8,12 @@
 #include "JitterBuffer.h"
 
 CJitterBuffer::CJitterBuffer(IDecoder* pDecoder, IRenderer* pRenderer)
-:   mpDecodedFrame(new char[mOneMegabyte]),
-	mLastCompletedFrameReceived(-1),
+:   mLastCompletedFrameReceived(-1),
 	mpDecoder(pDecoder),
 	mpRenderer(pRenderer)
 {
 	assert(mpDecoder);
 	assert(mpRenderer);
-	assert(	mpDecodedFrame);
 }
 
 void CJitterBuffer::ReceivePacket(const char*	pBuffer,
@@ -46,17 +44,15 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 
 			mFrame.Combine(mRecievedFrame);
 
-			mDecodedFrameSize = mpDecoder->DecodeFrame(mRecievedFrame.Pointer(), mRecievedFrame.CurrentSize(), mpDecodedFrame);
+			const int decodedFrameSize = mpDecoder->DecodeFrame(mRecievedFrame.Pointer(), mRecievedFrame.CurrentSize(), mpDecodedFrame.Pointer());
+			mpDecodedFrame.SetSize(decodedFrameSize);
 
-			mpRenderer->RenderFrame(mpDecodedFrame, mDecodedFrameSize);
+			mpRenderer->RenderFrame(mpDecodedFrame.Pointer(), mpDecodedFrame.Size());
 		}
 	}
 }
 
 CJitterBuffer::~CJitterBuffer()
 {
-	if (mpDecodedFrame)
-	{
-		delete[](mpDecodedFrame);
-	}
+
 }

@@ -5,6 +5,7 @@
 
 #include "Frame.h"
 #include "LazyBuffer.h"
+#include "RenderBuffer.h"
 
 class CJitterBuffer : public IJitterBuffer
 {
@@ -28,19 +29,16 @@ public:
 	~CJitterBuffer();
 
 private:
-	CFrame			 mFrame;
+	CFrame		  mFrame;
+	CLazyBuffer	  mRecievedFrame;
+	CRenderBuffer mpDecodedFrame;
 
-	CLazyBuffer		 mRecievedFrame;
+	int			  mLastCompletedFrameReceived; 
 
-	char*			 mpDecodedFrame;
-	int				 mDecodedFrameSize;
+	IDecoder*	  mpDecoder;
+	IRenderer*	  mpRenderer;
 
-	int				 mLastCompletedFrameReceived; 
 
-	IDecoder*		 mpDecoder;
-	IRenderer*		 mpRenderer;
-
-	static const int mOneMegabyte = 1024 * 1024;
 };
 
 #endif // _C_JITTER_BUFFER_H

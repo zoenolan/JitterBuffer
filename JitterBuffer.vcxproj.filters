@@ -24,6 +24,9 @@
     <Filter Include="JitterBuffer\LazyBuffer">
       <UniqueIdentifier>{1349dd8b-7fd9-4870-bbe5-8c75e3ebc7aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JitterBuffer\RenderBuffer">
+      <UniqueIdentifier>{e6a36383-1dd1-483f-ba6e-7218beeb05c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -56,11 +59,11 @@
     <ClInclude Include="LazyBuffer.h">
       <Filter>JitterBuffer\LazyBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="RenderBuffer.h">
+      <Filter>JitterBuffer\RenderBuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="JitterBuffer.cpp">
       <Filter>JitterBuffer</Filter>
     </ClCompile>
@@ -75,6 +78,12 @@
     </ClCompile>
     <ClCompile Include="LazyBuffer.cpp">
       <Filter>JitterBuffer\LazyBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="JitterBufferTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBuffer.cpp">
+      <Filter>JitterBuffer\RenderBuffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
