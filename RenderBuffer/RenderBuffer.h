@@ -13,8 +13,8 @@ public:
 	char* Pointer() const;
 
 private:
-	int				mCurrentSize;
-	char*			mpBuffer;
+	int				 mCurrentSize;
+	char*			 mpBuffer;
 
 	static const int mOneMegabyte = 1024 * 1024;
 };

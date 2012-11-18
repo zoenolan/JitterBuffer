@@ -1,4 +1,5 @@
 
+#include <assert.h>
 #include "RenderBuffer.h"
 
 CRenderBuffer::CRenderBuffer()
@@ -17,7 +18,24 @@ CRenderBuffer::~CRenderBuffer()
 
 void CRenderBuffer::SetSize(const int size)
 {
-	mCurrentSize = size;
+	const bool bNegativeSize = size < 0;
+	const bool bOverFlow     = size >= mOneMegabyte;
+
+	//assert(bNegativeSize);
+	//assert(bOverFlow);
+
+	if (bNegativeSize)
+	{
+		mCurrentSize = 0;
+	}
+	else if (bOverFlow)
+	{
+		mCurrentSize = mOneMegabyte - 1;
+	}
+	else
+	{
+		mCurrentSize = size;
+	}
 }
 
 int CRenderBuffer::Size() const
