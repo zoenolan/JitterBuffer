@@ -4,11 +4,16 @@
 class CLazyBuffer
 {
 public:
-	CLazyBuffer(const size_t sizeInBytes);
-
+	CLazyBuffer();
+	CLazyBuffer(const int allocatedSize);
 	~CLazyBuffer();
 
 	void Copy(const char* pBuffer, const int length);
+
+	void Resize (const int length);
+
+	char* Pointer() const;
+	int   CurrentSize() const;
 
 private:
 	void cleanUpBuffer();

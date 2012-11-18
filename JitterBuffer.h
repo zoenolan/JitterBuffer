@@ -4,6 +4,7 @@
 #include "JitterBufferInterface.h"
 
 #include "Frame.h"
+#include "LazyBuffer.h"
 
 class CJitterBuffer : public IJitterBuffer
 {
@@ -27,12 +28,19 @@ public:
 	~CJitterBuffer();
 
 private:
-	CFrame      mFrame;
+	CFrame			 mFrame;
 
-	int			mLastCompletedFrameReceived; 
+	CLazyBuffer		 mRecievedFrame;
 
-	IDecoder*	mpDecoder;
-	IRenderer*	mpRenderer;
+	char*			 mpDecodedFrame;
+	int				 mDecodedFrameSize;
+
+	int				 mLastCompletedFrameReceived; 
+
+	IDecoder*		 mpDecoder;
+	IRenderer*		 mpRenderer;
+
+	static const int mOneMegabyte = 1024 * 1024;
 };
 
 #endif // _C_JITTER_BUFFER_H

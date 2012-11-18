@@ -18,9 +18,7 @@ public:
 
 	bool Completed() const;
 
-	int  SizeInBytes() const;
-
-	int  Combine(const char* pBuffer);
+	void Combine(CLazyBuffer& outputBuffer);
 
 private:
 	int					     mFragmentsRemaining;

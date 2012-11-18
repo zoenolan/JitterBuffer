@@ -47,12 +47,9 @@ bool CFrame::Completed() const
 	return (0 == mFragmentsRemaining);
 }
 
-int  CFrame::SizeInBytes() const
+void CFrame::Combine(CLazyBuffer& outputBuffer)
 {
-	return (mFrameSizeInBytes);
-}
+	outputBuffer.Resize(mFrameSizeInBytes);
 
-int  CFrame::Combine(const char* pBuffer)
-{
-	return (0);
+
 }

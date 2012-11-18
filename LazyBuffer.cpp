@@ -5,11 +5,19 @@
 #include <cstring>
 #include <assert.h>
 
-CLazyBuffer::CLazyBuffer(const size_t sizeInBytes)
+CLazyBuffer::CLazyBuffer()
 :	mAllocatedSize(0),
 	mCurrentSize(0),
 	mpBuffer(NULL)
 {
+}
+
+CLazyBuffer::CLazyBuffer(const int allocatedSize)
+:	mAllocatedSize(0),
+	mCurrentSize(0),
+	mpBuffer(NULL)
+{
+	Resize(allocatedSize);
 }
 
 CLazyBuffer::~CLazyBuffer()
@@ -27,16 +35,28 @@ void CLazyBuffer::Copy(const char* pBuffer, const int length)
 
 	if (bValidBuffer && bValidLength)
 	{
+		Resize(length);
+
+		mCurrentSize = length;
+
+		std::memcpy(mpBuffer, pBuffer, length);
+	}
+}
+
+void CLazyBuffer::Resize (const int length)
+{
+	const bool bValidLength = length > 0; 
+
+	assert(bValidLength);
+
+	if (bValidLength)
+	{
 		if (mAllocatedSize < length)
 		{
 			cleanUpBuffer();
 			mpBuffer       = new char[length];
 			mAllocatedSize = length;
 		}
-
-		mCurrentSize = length;
-
-		std::memcpy(mpBuffer, pBuffer, length);
 	}
 }
 
@@ -46,4 +66,14 @@ void CLazyBuffer::cleanUpBuffer()
 	{
 		delete[] (mpBuffer);
 	}
+}
+
+char* CLazyBuffer::Pointer() const
+{
+	return (mpBuffer);
+}
+
+int CLazyBuffer::CurrentSize() const
+{
+	return (mCurrentSize);
 }
