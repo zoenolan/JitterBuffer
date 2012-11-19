@@ -22,7 +22,6 @@ CLazyBuffer::CLazyBuffer( const CLazyBuffer& rhs )
 	mCurrentSize(0),
 	mpBuffer(NULL)
 {
-
 }
 
 CLazyBuffer& CLazyBuffer::operator=( const CLazyBuffer& rhs)

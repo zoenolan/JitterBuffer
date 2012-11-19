@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
 
 	void Combine(CLazyBuffer& outputBuffer);
 */
+	printf("Passed\n");
 	return (0);
 }
 

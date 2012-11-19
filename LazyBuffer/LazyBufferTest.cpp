@@ -45,6 +45,34 @@ int main(int argc, char* argv[])
 		return (-1);
 	}
 
+	CLazyBuffer secondLazyBuffer(lazyBuffer);
+
+	if (0 != secondLazyBuffer.CurrentSize())
+	{
+		printf("Failed: The Buffer should start as zero sized\n");
+		return (-1);
+	}
+
+	if (NULL != secondLazyBuffer.Pointer())
+	{
+		printf("Failed: The Buffer pointer should be NULL at the start of day\n");
+		return (-1);
+	}
+
+	CLazyBuffer thirdLazyBuffer = lazyBuffer;
+
+	if (0 != thirdLazyBuffer.CurrentSize())
+	{
+		printf("Failed: The Buffer should start as zero sized\n");
+		return (-1);
+	}
+
+	if (NULL != thirdLazyBuffer.Pointer())
+	{
+		printf("Failed: The Buffer pointer should be NULL at the start of day\n");
+		return (-1);
+	}
+
 	printf("Passed\n");
 	return (0);
 }
