@@ -14,6 +14,7 @@ public:
 	char* Pointer() const;
 	int   CurrentSize() const;
 
+
 private:
 	void cleanUpBuffer();
 
