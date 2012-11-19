@@ -2,7 +2,7 @@
 #define _C_JITTER_BUFFER_H
 
 #include "JitterBufferInterface.h"
-
+#include <map>
 #include "Frame/Frame.h"
 #include "LazyBuffer/LazyBuffer.h"
 #include "RenderBuffer/RenderBuffer.h"
@@ -29,14 +29,14 @@ public:
 	~CJitterBuffer();
 
 private:
-	CFrame		  mFrame;
-	CLazyBuffer	  mRecievedFrame;
-	CRenderBuffer mpDecodedFrame;
+	std::map <int, CFrame>	mFrames;
+	CLazyBuffer				mRecievedFrame;
+	CRenderBuffer			mpDecodedFrame;
 
-	int			  mLastCompletedFrameReceived; 
+	int						mLastCompletedFrameReceived; 
 
-	IDecoder*	  mpDecoder;
-	IRenderer*	  mpRenderer;
+	IDecoder*				mpDecoder;
+	IRenderer*				mpRenderer;
 
 
 };

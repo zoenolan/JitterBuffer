@@ -34,11 +34,15 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 	// Sliently drop invalid packets, so the program doesn't crash
 	if ((bValidPointer) && (bValidBufferLength) && (bFragmentInRange) && (bFrameInRange))
 	{
-		mFrame.Reset(numFragmentsInThisFrame);
+		if (mFrames.find(frameNumber)== mFrames.end())
+		{
+			// This frame hasn't been started
+			mFrames[frameNumber].Reset(numFragmentsInThisFrame);
+		}
 
-		mFrame.AddFragment(pBuffer, length, fragmentNumber);
+		mFrames[frameNumber].AddFragment(pBuffer, length, fragmentNumber);
 
-		if (mFrame.Completed())
+		if (mFrames[frameNumber].Completed())
 		{
 			mLastCompletedFrameReceived++;
 

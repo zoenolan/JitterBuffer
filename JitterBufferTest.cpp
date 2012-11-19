@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	const int bufferSize = 1024;
 	char buffer[bufferSize];
 
-	const int fragmentsPerFrame = 1;
+	const int fragmentsPerFrame = 10;
 
 	const int framesToTest = 10;
 
