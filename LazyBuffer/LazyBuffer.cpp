@@ -84,6 +84,12 @@ void CLazyBuffer::Resize (const int length)
 	}
 }
 
+void CLazyBuffer::SetCurrentSize(const int length)
+{
+	Resize(length);
+	mCurrentSize = length;
+}
+
 void CLazyBuffer::cleanUpBuffer()
 {
 	if (mpBuffer)
