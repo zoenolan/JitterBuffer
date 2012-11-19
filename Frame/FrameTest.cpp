@@ -30,9 +30,36 @@ int main(int argc, char* argv[])
 		return (-1);
 	}
 
-/*
-	void Combine(CLazyBuffer& outputBuffer);
-*/
+	const int fragmentsPerFrame = 10;
+	frame.Reset(fragmentsPerFrame);
+
+	if (frame.Completed())
+	{
+		printf("Failed: The Frame should not be completed after reset has been calledn");
+		return (-1);
+	}
+
+	for (int i = 0; i < fragmentsPerFrame; i++)
+	{
+		frame.AddFragment(buffer, bufferSize, i);
+	}
+
+	if (!frame.Completed())
+	{
+		printf("Failed: The Frame should be completed after all the frgments have been added\n");
+		return (-1);
+	}
+
+	CLazyBuffer outputBuffer;
+
+	frame.Combine(outputBuffer);
+
+	if ((fragmentsPerFrame*bufferSize) != outputBuffer.CurrentSize())
+	{
+		printf("Failed: The combined buffer is the wrong size\n");
+		return (-1);
+	}
+
 	printf("Passed\n");
 	return (0);
 }
