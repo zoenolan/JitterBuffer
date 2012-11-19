@@ -12,14 +12,6 @@ CLazyBuffer::CLazyBuffer()
 {
 }
 
-CLazyBuffer::CLazyBuffer(const int allocatedSize)
-:	mAllocatedSize(0),
-	mCurrentSize(0),
-	mpBuffer(NULL)
-{
-	Resize(allocatedSize);
-}
-
 CLazyBuffer::~CLazyBuffer()
 {
 	cleanUpBuffer();
@@ -37,7 +29,7 @@ void CLazyBuffer::Copy(const char* pBuffer, const int length)
 	{
 		Resize(length);
 
-		mCurrentSize = length;
+		mCurrentSize   = length;
 
 		std::memcpy(mpBuffer, pBuffer, length);
 	}

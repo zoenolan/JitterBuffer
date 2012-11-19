@@ -5,7 +5,6 @@ class CLazyBuffer
 {
 public:
 	CLazyBuffer();
-	CLazyBuffer(const int allocatedSize);
 	~CLazyBuffer();
 
 	void Copy(const char* pBuffer, const int length);
