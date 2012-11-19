@@ -4,16 +4,33 @@
 int main(int argc, char* argv[])
 {
 	CFrame frame;
+
+	if (!frame.Completed())
+	{
+		printf("Failed: The Frame should be completed at construction time\n");
+		return (-1);
+	}
+
+	frame.Reset(1);
+
+	if (frame.Completed())
+	{
+		printf("Failed: The Frame should not be completed after reset has been calledn");
+		return (-1);
+	}
+
+	const int bufferSize = 128;
+	char buffer[bufferSize];
+
+	frame.AddFragment(buffer, bufferSize, 0);
+
+	if (!frame.Completed())
+	{
+		printf("Failed: The Frame should be completed after all the frgments have been added\n");
+		return (-1);
+	}
+
 /*
-	bool Completed() const;
-
-
-	void Reset(const int numberOfFragments);
-
-	void AddFragment(const char* pBuffer,
-					 const int   length,
-					 const int   fragmentNumber);
-
 	void Combine(CLazyBuffer& outputBuffer);
 */
 	printf("Passed\n");
