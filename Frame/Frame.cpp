@@ -14,10 +14,10 @@ void CFrame::Reset(const int numberOfFragments)
 {
 	mFragmentsRemaining = numberOfFragments;
 
-	mSeenFragment.reserve(numberOfFragments);
+	mSeenFragment.resize(numberOfFragments);
 	std::fill(mSeenFragment.begin(), mSeenFragment.end(), false);
 
-	mFragments.reserve(numberOfFragments);
+	mFragments.resize(numberOfFragments);
 
 	mFrameSizeInBytes = 0;
 }
@@ -27,7 +27,7 @@ void CFrame::AddFragment(const char* pBuffer,
 					     const int   fragmentNumber)
 {
 	const bool bFragmentsRemaining     = mFragmentsRemaining > 0;
-	const bool bFragmentNotSeenAlready = !mSeenFragment[fragmentNumber]; 
+	const bool bFragmentNotSeenAlready = !(mSeenFragment[fragmentNumber]); 
 
 	assert(bFragmentsRemaining);
 	assert(bFragmentNotSeenAlready);
