@@ -7,6 +7,9 @@ public:
 	CLazyBuffer();
 	~CLazyBuffer();
 
+    CLazyBuffer( const CLazyBuffer& rhs );           
+    CLazyBuffer& operator=( const CLazyBuffer& rhs); 
+
 	void Copy(const char* pBuffer, const int length);
 
 	void Resize (const int length);
@@ -22,9 +25,6 @@ private:
 	int mCurrentSize;
 
 	char*  mpBuffer;
-
-    CLazyBuffer( const CLazyBuffer& rhs );           // non construction-copyable
-    CLazyBuffer& operator=( const CLazyBuffer& rhs); // non copyable
 };
 
 #endif // _LAZY_BUFFER_H

@@ -17,6 +17,23 @@ CLazyBuffer::~CLazyBuffer()
 	cleanUpBuffer();
 }
 
+CLazyBuffer::CLazyBuffer( const CLazyBuffer& rhs )
+:	mAllocatedSize(0),
+	mCurrentSize(0),
+	mpBuffer(NULL)
+{
+
+}
+
+CLazyBuffer& CLazyBuffer::operator=( const CLazyBuffer& rhs)
+{
+	mAllocatedSize = 0;
+	mCurrentSize   = 0;
+	mpBuffer       = NULL;
+
+	return (*this);
+}
+
 void CLazyBuffer::Copy(const char* pBuffer, const int length)
 {
 	const bool bValidBuffer = pBuffer != NULL;
