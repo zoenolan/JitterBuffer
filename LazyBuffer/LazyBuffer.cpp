@@ -55,7 +55,7 @@ void CLazyBuffer::SubCopy(const char* pBuffer, const int length, const int offse
 {
 	const bool bValidBuffer = pBuffer != NULL;
 	const bool bValidLength = length > 0; 
-	const bool bValidSize   = (offset + length) < mCurrentSize;
+	const bool bValidSize   = (offset + length) <= mCurrentSize;
 
 	assert(bValidBuffer);
 	assert(bValidLength);
