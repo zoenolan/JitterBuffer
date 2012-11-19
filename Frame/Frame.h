@@ -27,6 +27,9 @@ private:
 	std::vector<CLazyBuffer> mFragments;
 
 	int					     mFrameSizeInBytes;
+
+    CFrame( const CFrame& rhs );           // non construction-copyable
+    CFrame& operator=( const CFrame& rhs); // non copyable
 };
 
 #endif // _FRAME_H
