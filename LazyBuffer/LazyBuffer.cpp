@@ -51,6 +51,22 @@ void CLazyBuffer::Copy(const char* pBuffer, const int length)
 	}
 }
 
+void CLazyBuffer::SubCopy(const char* pBuffer, const int length, const int offset)
+{
+	const bool bValidBuffer = pBuffer != NULL;
+	const bool bValidLength = length > 0; 
+	const bool bValidSize   = (offset + length) < mCurrentSize;
+
+	assert(bValidBuffer);
+	assert(bValidLength);
+	assert(bValidSize);
+
+	if (bValidBuffer && bValidLength && bValidSize)
+	{
+		std::memcpy(mpBuffer + offset, pBuffer, length);
+	}
+}
+
 void CLazyBuffer::Resize (const int length)
 {
 	const bool bValidLength = length > 0; 

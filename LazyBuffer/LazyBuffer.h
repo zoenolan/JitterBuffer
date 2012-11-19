@@ -11,6 +11,7 @@ public:
     CLazyBuffer& operator=( const CLazyBuffer& rhs); 
 
 	void Copy(const char* pBuffer, const int length);
+	void SubCopy(const char* pBuffer, const int length, const int offset);
 
 	void Resize (const int length);
 

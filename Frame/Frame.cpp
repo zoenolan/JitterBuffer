@@ -51,5 +51,5 @@ void CFrame::Combine(CLazyBuffer& outputBuffer)
 {
 	outputBuffer.Resize(mFrameSizeInBytes);
 
-
+	
 }
