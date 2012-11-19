@@ -1,5 +1,6 @@
 
 #include <cstddef>
+#include <cstdio>
 #include "LazyBuffer.h"
 
 int main(int argc, char* argv[])
@@ -8,11 +9,13 @@ int main(int argc, char* argv[])
 
 	if (0 != lazyBuffer.CurrentSize())
 	{
+		printf("Failed: The Buffer should start as zero sized\n");
 		return (-1);
 	}
 
 	if (NULL != lazyBuffer.Pointer())
 	{
+		printf("Failed: The Buffer pointer should be NULL at the start of day\n");
 		return (-1);
 	}
 
@@ -21,6 +24,7 @@ int main(int argc, char* argv[])
 
 	if (NULL == lazyBuffer.Pointer())
 	{
+		printf("Failed: The Buffer pointer should not be NULL once a size is allocated\n");
 		return (-4);
 	}
 
@@ -31,12 +35,14 @@ int main(int argc, char* argv[])
 
 	if (bufferSize != lazyBuffer.CurrentSize())
 	{
+		printf("Failed: The Buffer size should match the allocated size\n");
 		return (-1);
 	}
 
 	if (NULL == lazyBuffer.Pointer())
 	{
-		return (-4);
+		printf("Failed: The Buffer pointer should not be NULL once a size is allocated\n");
+		return (-1);
 	}
 
 	return (0);

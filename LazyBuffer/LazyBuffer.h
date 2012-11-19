@@ -21,6 +21,9 @@ private:
 	int mCurrentSize;
 
 	char*  mpBuffer;
+
+    CLazyBuffer( const CLazyBuffer& rhs );           // non construction-copyable
+    CLazyBuffer& operator=( const CLazyBuffer& rhs); // non copyable
 };
 
 #endif // _LAZY_BUFFER_H
