@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "LazyBuffer.h"
+#include "../LazyBuffer/LazyBuffer.h"
 
 class CFrame
 {
