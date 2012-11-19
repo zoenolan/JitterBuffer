@@ -3,9 +3,9 @@
 
 #include "JitterBufferInterface.h"
 
-#include "Frame.h"
-#include "LazyBuffer.h"
-#include "RenderBuffer.h"
+#include "Frame/Frame.h"
+#include "LazyBuffer/LazyBuffer.h"
+#include "RenderBuffer/RenderBuffer.h"
 
 class CJitterBuffer : public IJitterBuffer
 {

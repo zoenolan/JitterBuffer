@@ -72,28 +72,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="DecoderInterface.h" />
-    <ClInclude Include="Frame.h" />
+    <ClInclude Include="Frame\Frame.h" />
     <ClInclude Include="JitterBuffer.h" />
     <ClInclude Include="JitterBufferInterface.h" />
-    <ClInclude Include="LazyBuffer.h" />
+    <ClInclude Include="LazyBuffer\LazyBuffer.h" />
     <ClInclude Include="MockDecoder.h" />
     <ClInclude Include="MockRenderer.h" />
-    <ClInclude Include="RenderBuffer.h" />
+    <ClInclude Include="RenderBuffer\RenderBuffer.h" />
     <ClInclude Include="RendererInterface.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="Frame\Frame.cpp" />
     <ClCompile Include="JitterBuffer.cpp" />
-    <ClCompile Include="LazyBuffer.cpp" />
     <ClCompile Include="JitterBufferTest.cpp" />
+    <ClCompile Include="LazyBuffer\LazyBuffer.cpp" />
     <ClCompile Include="MockDecoder.cpp" />
     <ClCompile Include="MockRenderer.cpp" />
-    <ClCompile Include="RenderBuffer.cpp" />
+    <ClCompile Include="RenderBuffer\RenderBuffer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

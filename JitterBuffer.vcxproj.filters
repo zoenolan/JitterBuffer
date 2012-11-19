@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Interfaces">
       <UniqueIdentifier>{7b9afdf2-3b87-4c40-a0ef-07d69cdd2013}</UniqueIdentifier>
     </Filter>
@@ -29,12 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RendererInterface.h">
       <Filter>Interfaces</Filter>
     </ClInclude>
@@ -53,13 +39,13 @@
     <ClInclude Include="MockDecoder.h">
       <Filter>Mocks</Filter>
     </ClInclude>
-    <ClInclude Include="Frame.h">
+    <ClInclude Include="Frame\Frame.h">
       <Filter>JitterBuffer\Frame</Filter>
     </ClInclude>
-    <ClInclude Include="LazyBuffer.h">
+    <ClInclude Include="LazyBuffer\LazyBuffer.h">
       <Filter>JitterBuffer\LazyBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="RenderBuffer.h">
+    <ClInclude Include="RenderBuffer\RenderBuffer.h">
       <Filter>JitterBuffer\RenderBuffer</Filter>
     </ClInclude>
   </ItemGroup>
@@ -73,16 +59,14 @@
     <ClCompile Include="MockRenderer.cpp">
       <Filter>Mocks</Filter>
     </ClCompile>
-    <ClCompile Include="Frame.cpp">
+    <ClCompile Include="JitterBufferTest.cpp" />
+    <ClCompile Include="Frame\Frame.cpp">
       <Filter>JitterBuffer\Frame</Filter>
     </ClCompile>
-    <ClCompile Include="LazyBuffer.cpp">
+    <ClCompile Include="LazyBuffer\LazyBuffer.cpp">
       <Filter>JitterBuffer\LazyBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="JitterBufferTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderBuffer.cpp">
+    <ClCompile Include="RenderBuffer\RenderBuffer.cpp">
       <Filter>JitterBuffer\RenderBuffer</Filter>
     </ClCompile>
   </ItemGroup>
