@@ -25,16 +25,15 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 	const bool bValidPointer      = pBuffer != NULL;
 	const bool bValidBufferLength = length > 0;
 	const bool bFragmentInRange   = (fragmentNumber >= 0) && (fragmentNumber < numFragmentsInThisFrame);
-	const bool bFrameInRange      = frameNumber > mLastCompletedFrameReceived;
 
 	assert(bValidPointer);
 	assert(bValidBufferLength);
 	assert(bFragmentInRange);
 
 	// Sliently drop invalid packets, so the program doesn't crash
-	if ((bValidPointer) && (bValidBufferLength) && (bFragmentInRange) && (bFrameInRange))
+	if ((bValidPointer) && (bValidBufferLength) && (bFragmentInRange))
 	{
-		if (mFrames.find(frameNumber)== mFrames.end())
+		if (mFrames.find(frameNumber) == mFrames.end())
 		{
 			// This frame hasn't been started
 			mFrames[frameNumber].Reset(numFragmentsInThisFrame);
@@ -44,14 +43,20 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 
 		if (mFrames[frameNumber].Completed())
 		{
-			mLastCompletedFrameReceived++;
+			while ((mFrames.find(mLastCompletedFrameReceived + 1) != mFrames.end()) && 
+				   (mFrames[mLastCompletedFrameReceived + 1].Completed()))
+			{
+				mFrames[mLastCompletedFrameReceived + 1].Combine(mRecievedFrame);
 
-			mFrame.Combine(mRecievedFrame);
+				mFrames.erase(mLastCompletedFrameReceived + 1);
 
-			const int decodedFrameSize = mpDecoder->DecodeFrame(mRecievedFrame.Pointer(), mRecievedFrame.CurrentSize(), mpDecodedFrame.Pointer());
-			mpDecodedFrame.SetSize(decodedFrameSize);
+				mLastCompletedFrameReceived++;
 
-			mpRenderer->RenderFrame(mpDecodedFrame.Pointer(), mpDecodedFrame.Size());
+				const int decodedFrameSize = mpDecoder->DecodeFrame(mRecievedFrame.Pointer(), mRecievedFrame.CurrentSize(), mpDecodedFrame.Pointer());
+				mpDecodedFrame.SetSize(decodedFrameSize);
+
+				mpRenderer->RenderFrame(mpDecodedFrame.Pointer(), mpDecodedFrame.Size());
+			}
 		}
 	}
 }
