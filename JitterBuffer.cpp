@@ -36,6 +36,7 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 		if (mFrames.find(frameNumber) == mFrames.end())
 		{
 			// This frame hasn't been started
+			mFrames[frameNumber] = CFrame();
 			mFrames[frameNumber].Reset(numFragmentsInThisFrame);
 		}
 
@@ -51,12 +52,12 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 				mFrames.erase(mLastCompletedFrameReceived + 1);
 
 				mLastCompletedFrameReceived++;
-
-				const int decodedFrameSize = mpDecoder->DecodeFrame(mRecievedFrame.Pointer(), mRecievedFrame.CurrentSize(), mpDecodedFrame.Pointer());
-				mpDecodedFrame.SetSize(decodedFrameSize);
-
-				mpRenderer->RenderFrame(mpDecodedFrame.Pointer(), mpDecodedFrame.Size());
 			}
+
+			const int decodedFrameSize = mpDecoder->DecodeFrame(mRecievedFrame.Pointer(), mRecievedFrame.CurrentSize(), mpDecodedFrame.Pointer());
+			mpDecodedFrame.SetSize(decodedFrameSize);
+
+			mpRenderer->RenderFrame(mpDecodedFrame.Pointer(), mpDecodedFrame.Size());
 		}
 	}
 }

@@ -4,5 +4,5 @@
 
 int CMockDecoder::DecodeFrame(const char* buffer, int length, char* outputBuffer)
 {
-	return (0);
+	return (length);
 }

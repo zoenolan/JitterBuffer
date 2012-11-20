@@ -18,8 +18,8 @@ CRenderBuffer::~CRenderBuffer()
 
 void CRenderBuffer::SetSize(const int size)
 {
-	const bool bNegativeSize = size < 0;
-	const bool bOverFlow     = size > mOneMegabyte;
+	const bool bNegativeSize = size > 0;
+	const bool bOverFlow     = size < mOneMegabyte;
 
 	assert(bNegativeSize);
 	assert(bOverFlow);
