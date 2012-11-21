@@ -84,7 +84,6 @@
     <ClInclude Include="RendererInterface.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BufferQueue\BufferQueue.cpp" />
     <ClCompile Include="Frame\Frame.cpp" />
     <ClCompile Include="JitterBuffer.cpp" />
     <ClCompile Include="JitterBufferTest.cpp" />

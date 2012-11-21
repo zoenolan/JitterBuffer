@@ -75,8 +75,5 @@
     <ClCompile Include="RenderBuffer\RenderBuffer.cpp">
       <Filter>JitterBuffer\RenderBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="BufferQueue\BufferQueue.cpp">
-      <Filter>JitterBuffer\BufferQueue</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

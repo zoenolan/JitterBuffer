@@ -7,9 +7,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BufferQueue.cpp">
-      <Filter>BufferQueue</Filter>
-    </ClCompile>
     <ClCompile Include="BufferQueueTest.cpp" />
   </ItemGroup>
   <ItemGroup>
