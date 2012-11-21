@@ -19,6 +19,9 @@
     <Filter Include="JitterBuffer\RenderBuffer">
       <UniqueIdentifier>{e6a36383-1dd1-483f-ba6e-7218beeb05c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JitterBuffer\BufferQueue">
+      <UniqueIdentifier>{32ffcb52-81ef-42e7-9546-ed498ef3864d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RendererInterface.h">
@@ -48,6 +51,9 @@
     <ClInclude Include="RenderBuffer\RenderBuffer.h">
       <Filter>JitterBuffer\RenderBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="BufferQueue\BufferQueue.h">
+      <Filter>JitterBuffer\BufferQueue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JitterBuffer.cpp">
@@ -68,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="RenderBuffer\RenderBuffer.cpp">
       <Filter>JitterBuffer\RenderBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="BufferQueue\BufferQueue.cpp">
+      <Filter>JitterBuffer\BufferQueue</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

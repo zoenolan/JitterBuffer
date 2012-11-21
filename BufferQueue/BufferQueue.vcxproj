@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{22E6A2E5-8072-45A0-B988-90AFD4B9D198}</ProjectGuid>
+    <ProjectGuid>{2F9268F5-BE48-41F2-907A-03EC02017F14}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>JitterBuffer</RootNamespace>
+    <RootNamespace>BufferQueue</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -72,26 +72,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BufferQueue\BufferQueue.h" />
-    <ClInclude Include="DecoderInterface.h" />
-    <ClInclude Include="Frame\Frame.h" />
-    <ClInclude Include="JitterBuffer.h" />
-    <ClInclude Include="JitterBufferInterface.h" />
-    <ClInclude Include="LazyBuffer\LazyBuffer.h" />
-    <ClInclude Include="MockDecoder.h" />
-    <ClInclude Include="MockRenderer.h" />
-    <ClInclude Include="RenderBuffer\RenderBuffer.h" />
-    <ClInclude Include="RendererInterface.h" />
+    <ClCompile Include="BufferQueue.cpp" />
+    <ClCompile Include="BufferQueueTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BufferQueue\BufferQueue.cpp" />
-    <ClCompile Include="Frame\Frame.cpp" />
-    <ClCompile Include="JitterBuffer.cpp" />
-    <ClCompile Include="JitterBufferTest.cpp" />
-    <ClCompile Include="LazyBuffer\LazyBuffer.cpp" />
-    <ClCompile Include="MockDecoder.cpp" />
-    <ClCompile Include="MockRenderer.cpp" />
-    <ClCompile Include="RenderBuffer\RenderBuffer.cpp" />
+    <ClInclude Include="BufferQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
