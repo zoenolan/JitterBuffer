@@ -27,9 +27,9 @@ int main(int argc, char* argv[])
 
 	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
 
-	for (unsigned int frame = 0; frame < framesToTest; frame++)
+	for (int frame = 0; frame < framesToTest; frame++)
 	{
-		for (unsigned int fragment = 0; fragment < fragmentsPerFrame; fragment++)
+		for (int fragment = 0; fragment < fragmentsPerFrame; fragment++)
 		{
 			pJitterBuffer->ReceivePacket(buffer, bufferSize, frame, fragment, fragmentsPerFrame);
 		}

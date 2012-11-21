@@ -49,12 +49,15 @@ bool CFrame::Completed() const
 
 void CFrame::Combine(CLazyBuffer& outputBuffer)
 {
-	outputBuffer.SetCurrentSize(mFrameSizeInBytes);
+    if (Completed())
+    {
+	    outputBuffer.SetCurrentSize(mFrameSizeInBytes);
 
-	int  offset = 0;
-	for (size_t i = 0; i < mFragments.size(); i++)
-	{
-		outputBuffer.SubCopy(mFragments[i].Pointer(), mFragments[i].CurrentSize(), offset); 
-		offset += mFragments[i].CurrentSize();
-	}
+	    int  offset = 0;
+	    for (size_t i = 0; i < mFragments.size(); i++)
+	    {
+		    outputBuffer.SubCopy(mFragments[i].Pointer(), mFragments[i].CurrentSize(), offset); 
+		    offset += mFragments[i].CurrentSize();
+	    }
+    }
 }

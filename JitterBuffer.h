@@ -1,11 +1,15 @@
 #ifndef _C_JITTER_BUFFER_H
 #define _C_JITTER_BUFFER_H
 
-#include "JitterBufferInterface.h"
 #include <map>
-#include "Frame/Frame.h"
-#include "LazyBuffer/LazyBuffer.h"
-#include "RenderBuffer/RenderBuffer.h"
+#include <deque>
+
+#include "JitterBufferInterface.h"
+#include "BufferQueue/BufferQueue.h"
+
+class CFrame;
+class CLazyBuffer;
+class CRenderBuffer;
 
 class CJitterBuffer : public IJitterBuffer
 {
@@ -15,8 +19,8 @@ public:
 	/*
 	Should copy the given buffer, as it may be deleted/reused immediately following this call.
 	@param frameNumber - will start at zero for the call
-	@param fragmentNumber – specifies what position this fragment is within the given
-	frame – the first fragment number in each frame is number zero
+	@param fragmentNumber - specifies what position this fragment is within the given
+	frame - the first fragment number in each frame is number zero
 	@param numFragmentsInThisFrame - is guaranteed to be identical for all fragments
 	with the same frameNumber
 	*/
@@ -29,16 +33,20 @@ public:
 	~CJitterBuffer();
 
 private:
-	std::map <int, CFrame>	mFrames;
-	CLazyBuffer				mRecievedFrame;
-	CRenderBuffer			mpDecodedFrame;
+    void serviceDecoder();
+    void serviceRenderer();
 
-	int						mLastCompletedFrameReceived; 
+    std::deque<CFrame*>         mFreeFrames;
+	std::map <int, CFrame*>	    mFrames;
 
-	IDecoder*				mpDecoder;
-	IRenderer*				mpRenderer;
+    CBufferQueue<CLazyBuffer>   mDecoderQueue;
 
+    CBufferQueue<CRenderBuffer> mRendererQueue;
 
+	int						    mLastCompletedFrameReceived; 
+
+	IDecoder*				    mpDecoder;
+	IRenderer*				    mpRenderer;
 };
 
 #endif // _C_JITTER_BUFFER_H

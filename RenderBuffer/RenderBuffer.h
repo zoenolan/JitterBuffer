@@ -7,9 +7,20 @@ public:
 	CRenderBuffer();
 	~CRenderBuffer();
 
+	/*
+	Set the current size to size
+	@param size - will start at zero for the call
+	*/
 	void  SetSize(const int size);
+
+	/*
+	Return the size in bytes of the current allocation
+	*/
 	int   Size() const;
 
+	/*
+	Return a pointer to the current allocation
+	*/
 	char* Pointer() const;
 
 private:
