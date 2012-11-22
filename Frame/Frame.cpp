@@ -1,13 +1,14 @@
 
-#include "Frame.h"
-
 #include <assert.h>
+
+#include "Frame.h"
 
 CFrame::CFrame()
 :
 	mFragmentsRemaining(0),
     mFrameSizeInBytes(0)
 {
+	QueryPerformanceFrequency(&mTimerFrequency);
 }
 
 void CFrame::Reset(const int numberOfFragments)
@@ -20,6 +21,8 @@ void CFrame::Reset(const int numberOfFragments)
 	mFragments.resize(numberOfFragments);
 
 	mFrameSizeInBytes = 0;
+
+	QueryPerformanceCounter(&mStartTime);
 }
 
 void CFrame::AddFragment(const char* pBuffer,
@@ -39,6 +42,11 @@ void CFrame::AddFragment(const char* pBuffer,
 
 		mFragmentsRemaining--;
 		mFrameSizeInBytes += length;
+
+		if (0 == mFragmentsRemaining)
+		{
+			QueryPerformanceCounter(&mEndTime);
+		}
 	}
 }
 
@@ -60,4 +68,18 @@ void CFrame::Combine(CLazyBuffer& outputBuffer)
 		    offset += mFragments[i].Size();
 	    }
     }
+}
+
+DWORD CFrame::Time()
+{
+	if (Completed())
+	{
+		
+		double frameTime = (mEndTime.QuadPart - mStartTime.QuadPart) * 1000.0 / mTimerFrequency.QuadPart;
+		return (frameTime);
+	}
+	else
+	{
+		return (0);
+	}
 }

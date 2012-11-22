@@ -2,6 +2,7 @@
 #define _FRAME_H
 
 #include <vector>
+#include <windows.h>
 
 #include "../LazyBuffer/LazyBuffer.h"
 
@@ -38,6 +39,11 @@ public:
 	*/
 	void Combine(CLazyBuffer& outputBuffer);
 
+	/*
+	The time (in milliseconds) to receive the frame
+	*/
+	DWORD Time();
+
 private:
 	int					     mFragmentsRemaining;
 
@@ -45,6 +51,10 @@ private:
 	std::vector<CLazyBuffer> mFragments;
 
 	int					     mFrameSizeInBytes;
+
+	LARGE_INTEGER			 mStartTime;
+	LARGE_INTEGER			 mEndTime;
+	LARGE_INTEGER			 mTimerFrequency;
 };
 
 #endif // _FRAME_H

@@ -1,4 +1,6 @@
 
+#include <windows.h>
+
 #include "Frame.h"
 
 int main(int argc, char* argv[])
@@ -57,6 +59,22 @@ int main(int argc, char* argv[])
 	if ((fragmentsPerFrame*bufferSize) != outputBuffer.Size())
 	{
 		printf("Failed: The combined buffer is the wrong size\n");
+		return (-1);
+	}
+
+	const DWORD timeToWait = 15;
+
+	frame.Reset(fragmentsPerFrame);
+
+	for (int i = 0; i < fragmentsPerFrame; i++)
+	{
+		frame.AddFragment(buffer, bufferSize, i);
+		Sleep(timeToWait);
+	}
+
+	if (!frame.Time())
+	{
+		printf("Failed: The \n");
 		return (-1);
 	}
 
