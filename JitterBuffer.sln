@@ -9,8 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderBuffer", "RenderBuffe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Frame", "Frame\Frame.vcxproj", "{C7207B7D-EABA-4371-8B6B-B41D4620E438}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BufferQueue", "BufferQueue\BufferQueue.vcxproj", "{2F9268F5-BE48-41F2-907A-03EC02017F14}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -33,10 +31,6 @@ Global
 		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Debug|Win32.Build.0 = Debug|Win32
 		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Release|Win32.ActiveCfg = Release|Win32
 		{C7207B7D-EABA-4371-8B6B-B41D4620E438}.Release|Win32.Build.0 = Release|Win32
-		{2F9268F5-BE48-41F2-907A-03EC02017F14}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2F9268F5-BE48-41F2-907A-03EC02017F14}.Debug|Win32.Build.0 = Debug|Win32
-		{2F9268F5-BE48-41F2-907A-03EC02017F14}.Release|Win32.ActiveCfg = Release|Win32
-		{2F9268F5-BE48-41F2-907A-03EC02017F14}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
