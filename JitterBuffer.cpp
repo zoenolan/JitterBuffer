@@ -106,7 +106,6 @@ void CJitterBuffer::ServiceDecoder()
 {
 	while (mbRunDecoder)
 	{
-/*
 		CLazyBuffer* pDecodable = mDecoderQueue.GetUsableBuffer();
 
 		if (pDecodable)
@@ -125,7 +124,6 @@ void CJitterBuffer::ServiceDecoder()
 
 			mDecoderQueue.QueueFreeBuffer(pDecodable);
 		}
-*/
 	}
 
 	mbDecoderThreadFinished = true;
@@ -135,7 +133,6 @@ void CJitterBuffer::ServiceRenderer()
 {
 	while (mbRunRenderer)
 	{
-/*
 		CRenderBuffer* pRenderable = mRendererQueue.GetUsableBuffer();
 
 		if (pRenderable)
@@ -144,7 +141,6 @@ void CJitterBuffer::ServiceRenderer()
 
 			mRendererQueue.QueueFreeBuffer(pRenderable);
 		}
-*/
 	}
 
 	mbRendererThreadFinished = true;
