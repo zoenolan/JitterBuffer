@@ -22,7 +22,7 @@ void RendererFunction(void* pJitterBuffer)
 {
 	CJitterBuffer* pJitterBufferObject = (CJitterBuffer*)pJitterBuffer;
 
-	pJitterBufferObject->ServiceDecoder();
+	pJitterBufferObject->ServiceRenderer();
 }
 
 CJitterBuffer::CJitterBuffer(IDecoder* pDecoder, IRenderer* pRenderer)

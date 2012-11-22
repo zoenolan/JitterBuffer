@@ -90,13 +90,13 @@ template <class T> T* CBufferQueue<T>::GetUsableBuffer()
 {
 	// wait for a buffer to be queued
 	WaitForSingleObject(mUsableMutex, INFINITE);
-	bool bBuffersWaiting = !mUsableBuffers.empty();
+	bool bNoBuffers = mUsableBuffers.empty();
 	ReleaseMutex(mUsableMutex);
 
-    while (bBuffersWaiting)
+    while (bNoBuffers)
     {
 		WaitForSingleObject(mUsableMutex, INFINITE);
-		bBuffersWaiting = !mUsableBuffers.empty();
+		bNoBuffers = mUsableBuffers.empty();
 		ReleaseMutex(mUsableMutex);
 	}
 

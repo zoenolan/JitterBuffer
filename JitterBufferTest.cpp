@@ -13,8 +13,8 @@
 
 int main(int argc, char* argv[])
 {
-//	const int bufferSize = 1024;
-//	char buffer[bufferSize];
+	const int bufferSize = 1024;
+	char buffer[bufferSize];
 
 	const int fragmentsPerFrame = 10;
 
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 	IRenderer* pRenderer         = new CMockRenderer();
 
 	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
-/*
+
 	for (int frame = 0; frame < framesToTest; frame++)
 	{
 		for (int fragment = 0; fragment < fragmentsPerFrame; fragment++)
@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 			pJitterBuffer->ReceivePacket(buffer, bufferSize, frame, fragment, fragmentsPerFrame);
 		}
 	}
-*/
+
 	delete (pJitterBuffer);
 
 	delete (pRenderer);
