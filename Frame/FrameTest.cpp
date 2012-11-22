@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
 	if (frame.Completed())
 	{
-		printf("Failed: The Frame should not be completed after reset has been calledn");
+		printf("Failed: The Frame should not be completed after reset has been called\n");
 		return (-1);
 	}
 
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 
 	if (frame.Completed())
 	{
-		printf("Failed: The Frame should not be completed after reset has been calledn");
+		printf("Failed: The Frame should not be completed after reset has been called\n");
 		return (-1);
 	}
 
