@@ -72,9 +72,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\LazyBuffer\LazyBuffer.h" />
     <ClInclude Include="RenderBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\LazyBuffer\LazyBuffer.cpp" />
     <ClCompile Include="RenderBuffer.cpp" />
     <ClCompile Include="RenderBufferTest.cpp" />
   </ItemGroup>

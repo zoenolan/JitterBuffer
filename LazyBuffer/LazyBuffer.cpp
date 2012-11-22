@@ -69,7 +69,7 @@ void CLazyBuffer::SubCopy(const char* pBuffer, const int length, const int offse
 
 void CLazyBuffer::Resize (const int length)
 {
-	const bool bValidLength = length > 0; 
+	const bool bValidLength = length >= 0; 
 
 	assert(bValidLength);
 
@@ -103,7 +103,7 @@ char* CLazyBuffer::Pointer() const
 	return (mpBuffer);
 }
 
-int CLazyBuffer::CurrentSize() const
+int CLazyBuffer::Size() const
 {
 	return (mCurrentSize);
 }

@@ -1,11 +1,12 @@
 #ifndef _RENDER_BUFFER_H
 #define _RENDER_BUFFER_H
 
-class CRenderBuffer
+#include "../LazyBuffer/LazyBuffer.h"
+
+class CRenderBuffer : public CLazyBuffer
 {
 public:
 	CRenderBuffer();
-	~CRenderBuffer();
 
 	/*
 	Set the current size to size
@@ -13,24 +14,10 @@ public:
 	*/
 	void  SetSize(const int size);
 
-	/*
-	Return the size in bytes of the current allocation
-	*/
-	int   Size() const;
-
-	/*
-	Return a pointer to the current allocation
-	*/
-	char* Pointer() const;
-
 private:
-	int				 mCurrentSize;
-	char*			 mpBuffer;
-
 	static const int mOneMegabyte = 1024 * 1024;
 
-    CRenderBuffer( const CRenderBuffer& rhs );           // non construction-copyable
-    CRenderBuffer& operator=( const CRenderBuffer& rhs); // non copyable
+	static const int mAllocSize = mOneMegabyte;
 };
 
 #endif // _RENDER_BUFFER_H

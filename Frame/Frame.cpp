@@ -56,8 +56,8 @@ void CFrame::Combine(CLazyBuffer& outputBuffer)
 	    int  offset = 0;
 	    for (size_t i = 0; i < mFragments.size(); i++)
 	    {
-		    outputBuffer.SubCopy(mFragments[i].Pointer(), mFragments[i].CurrentSize(), offset); 
-		    offset += mFragments[i].CurrentSize();
+		    outputBuffer.SubCopy(mFragments[i].Pointer(), mFragments[i].Size(), offset); 
+		    offset += mFragments[i].Size();
 	    }
     }
 }

@@ -115,7 +115,7 @@ void CJitterBuffer::ServiceDecoder()
 			if (pRenderable)
 			{
 				const int decodedFrameSize = mpDecoder->DecodeFrame(pDecodable->Pointer(), 
-																	pDecodable->CurrentSize(), 
+																	pDecodable->Size(), 
 																	pRenderable->Pointer());
 				pRenderable->SetSize(decodedFrameSize);
 

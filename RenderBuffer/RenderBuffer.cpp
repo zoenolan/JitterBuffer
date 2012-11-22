@@ -3,47 +3,28 @@
 #include "RenderBuffer.h"
 
 CRenderBuffer::CRenderBuffer()
-:	mCurrentSize(0),
-	mpBuffer(new char[mOneMegabyte])
 {
-}
-
-CRenderBuffer::~CRenderBuffer()
-{
-	if (mpBuffer)
-	{
-		delete[](mpBuffer);
-	}
+	SetCurrentSize(mAllocSize);
 }
 
 void CRenderBuffer::SetSize(const int size)
 {
 	const bool bNegativeSize = size < 0;
-	const bool bOverFlow     = size > mOneMegabyte;
+	const bool bOverFlow     = size > mAllocSize;
 
 	assert(!bNegativeSize);
 	assert(!bOverFlow);
 
 	if (bNegativeSize)
 	{
-		mCurrentSize = 0;
+		SetCurrentSize(0);
 	}
 	else if (bOverFlow)
 	{
-		mCurrentSize = mOneMegabyte;
+		SetCurrentSize(mAllocSize);
 	}
 	else
 	{
-		mCurrentSize = size;
+		SetCurrentSize(size);
 	}
-}
-
-int CRenderBuffer::Size() const
-{
-	return (mCurrentSize);
-}
-
-char* CRenderBuffer::Pointer() const
-{
-	return (mpBuffer);
 }

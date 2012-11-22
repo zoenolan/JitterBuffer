@@ -4,16 +4,25 @@
     <Filter Include="RenderBuffer">
       <UniqueIdentifier>{f5a5b6a4-af9d-4eb3-b32b-a5f26d8c7028}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LazyBuffer">
+      <UniqueIdentifier>{cd0529b0-3573-4137-8615-83ee71f39c62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderBuffer.h">
       <Filter>RenderBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LazyBuffer\LazyBuffer.h">
+      <Filter>LazyBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RenderBufferTest.cpp" />
     <ClCompile Include="RenderBuffer.cpp">
       <Filter>RenderBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LazyBuffer\LazyBuffer.cpp">
+      <Filter>LazyBuffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

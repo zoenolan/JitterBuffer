@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 
 	frame.Combine(outputBuffer);
 
-	if ((fragmentsPerFrame*bufferSize) != outputBuffer.CurrentSize())
+	if ((fragmentsPerFrame*bufferSize) != outputBuffer.Size())
 	{
 		printf("Failed: The combined buffer is the wrong size\n");
 		return (-1);

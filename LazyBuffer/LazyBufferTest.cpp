@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
 	CLazyBuffer lazyBuffer;
 
-	if (0 != lazyBuffer.CurrentSize())
+	if (0 != lazyBuffer.Size())
 	{
 		printf("Failed: The Buffer should start as zero sized\n");
 		return (-1);
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
 	lazyBuffer.Copy(buffer, bufferSize);
 
-	if (bufferSize != lazyBuffer.CurrentSize())
+	if (bufferSize != lazyBuffer.Size())
 	{
 		printf("Failed: The Buffer size should match the allocated size\n");
 		return (-1);
@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
 
 	CLazyBuffer secondLazyBuffer(lazyBuffer);
 
-	if (0 != secondLazyBuffer.CurrentSize())
+	if (0 != secondLazyBuffer.Size())
 	{
 		printf("Failed: The Buffer should start as zero sized\n");
 		return (-1);
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 
 	CLazyBuffer thirdLazyBuffer = lazyBuffer;
 
-	if (0 != thirdLazyBuffer.CurrentSize())
+	if (0 != thirdLazyBuffer.Size())
 	{
 		printf("Failed: The Buffer should start as zero sized\n");
 		return (-1);

@@ -33,7 +33,7 @@ public:
 	/*
 	Return the size in bytes of the current allocation
 	*/
-	int   CurrentSize() const;
+	int   Size() const;
 
     friend class CFrame;
 
