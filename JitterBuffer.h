@@ -32,10 +32,10 @@ public:
 	
 	~CJitterBuffer();
 
-private:
-    void serviceDecoder();
-    void serviceRenderer();
+    void ServiceDecoder();
+    void ServiceRenderer();
 
+private:
     std::deque<CFrame*>         mFreeFrames;
 	std::map <int, CFrame*>	    mFrames;
 
@@ -47,6 +47,12 @@ private:
 
 	IDecoder*				    mpDecoder;
 	IRenderer*				    mpRenderer;
+
+	bool						mbRunDecoder;
+	bool						mbRunRenderer;
+
+	bool						mbDecoderThreadFinished;
+	bool						mbRendererThreadFinished;
 };
 
 #endif // _C_JITTER_BUFFER_H

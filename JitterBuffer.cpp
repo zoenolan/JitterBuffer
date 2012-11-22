@@ -1,6 +1,7 @@
 
 #include <cstddef>
 #include <assert.h>
+#include <process.h>
 
 #include "JitterBuffer.h"
 
@@ -10,13 +11,34 @@
 #include "DecoderInterface.h"
 #include "RendererInterface.h"
 
+void DecoderFunction(void* pJitterBuffer)
+{
+	CJitterBuffer* pJitterBufferObject = (CJitterBuffer*)pJitterBuffer;
+
+	pJitterBufferObject->ServiceDecoder();
+}
+
+void RendererFunction(void* pJitterBuffer)
+{
+	CJitterBuffer* pJitterBufferObject = (CJitterBuffer*)pJitterBuffer;
+
+	pJitterBufferObject->ServiceDecoder();
+}
+
 CJitterBuffer::CJitterBuffer(IDecoder* pDecoder, IRenderer* pRenderer)
 :   mLastCompletedFrameReceived(-1),
 	mpDecoder(pDecoder),
-	mpRenderer(pRenderer)
+	mpRenderer(pRenderer),
+	mbRunDecoder(true),
+	mbRunRenderer(true),
+	mbDecoderThreadFinished(false),
+	mbRendererThreadFinished(false)
 {
 	assert(mpDecoder);
 	assert(mpRenderer);
+
+	_beginthread(DecoderFunction,  0, this);
+	_beginthread(RendererFunction, 0, this);
 }
 
 void CJitterBuffer::ReceivePacket(const char*	pBuffer,
@@ -76,49 +98,70 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 
                 mFreeFrames.push_back(pFrame);
 			}
-
-            serviceDecoder();
-
-            serviceRenderer();
 		}
 	}
 }
 
-void CJitterBuffer::serviceDecoder()
+void CJitterBuffer::ServiceDecoder()
 {
-    CLazyBuffer* pDecodable = mDecoderQueue.GetUsableBuffer();
+	while (mbRunDecoder)
+	{
+/*
+		CLazyBuffer* pDecodable = mDecoderQueue.GetUsableBuffer();
 
-    if (pDecodable)
-    {
-        CRenderBuffer* pRenderable = mRendererQueue.GetFreeBuffer();
+		if (pDecodable)
+		{
+			CRenderBuffer* pRenderable = mRendererQueue.GetFreeBuffer();
 
-        if (pRenderable)
-        {
-            const int decodedFrameSize = mpDecoder->DecodeFrame(pDecodable->Pointer(), 
-                                                                pDecodable->CurrentSize(), 
-                                                                pRenderable->Pointer());
-            pRenderable->SetSize(decodedFrameSize);
+			if (pRenderable)
+			{
+				const int decodedFrameSize = mpDecoder->DecodeFrame(pDecodable->Pointer(), 
+																	pDecodable->CurrentSize(), 
+																	pRenderable->Pointer());
+				pRenderable->SetSize(decodedFrameSize);
 
-            mRendererQueue.QueueForUse(pRenderable);
-        }	
-        mDecoderQueue.QueueFreeBuffer(pDecodable);
-    }
+				mRendererQueue.QueueForUse(pRenderable);
+			}	
+
+			mDecoderQueue.QueueFreeBuffer(pDecodable);
+		}
+*/
+	}
+
+	mbDecoderThreadFinished = true;
 }
 
-void CJitterBuffer::serviceRenderer()
+void CJitterBuffer::ServiceRenderer()
 {
-    CRenderBuffer* pRenderable = mRendererQueue.GetUsableBuffer();
+	while (mbRunRenderer)
+	{
+/*
+		CRenderBuffer* pRenderable = mRendererQueue.GetUsableBuffer();
 
-    if (pRenderable)
-    {
-        mpRenderer->RenderFrame(pRenderable->Pointer(), pRenderable->Size());
+		if (pRenderable)
+		{
+			mpRenderer->RenderFrame(pRenderable->Pointer(), pRenderable->Size());
 
-        mRendererQueue.QueueFreeBuffer(pRenderable);
-    }	
+			mRendererQueue.QueueFreeBuffer(pRenderable);
+		}
+*/
+	}
+
+	mbRendererThreadFinished = true;
 }
 
 CJitterBuffer::~CJitterBuffer()
 {
+	// Tell the threads to end
+	mbRunDecoder  = false;
+	mbRunRenderer = false;
+
+	// Wait for them to end
+	while (!mbRendererThreadFinished && !mbDecoderThreadFinished)
+	{
+
+	}
+
     // Clear up the input bitstream data
     while (!mFreeFrames.empty())
     {
