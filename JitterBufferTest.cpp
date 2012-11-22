@@ -1,5 +1,3 @@
-// JitterBuffer.cpp : Defines the entry point for the console application.
-//
 
 // Interfaces
 #include "DecoderInterface.h"
