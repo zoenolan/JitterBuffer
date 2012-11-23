@@ -76,7 +76,7 @@ DWORD CFrame::Time()
 	{
 		
 		double frameTime = (mEndTime.QuadPart - mStartTime.QuadPart) * 1000.0 / mTimerFrequency.QuadPart;
-		return (frameTime);
+		return (DWORD(frameTime));
 	}
 	else
 	{

@@ -37,6 +37,15 @@ CJitterBuffer::CJitterBuffer(IDecoder* pDecoder, IRenderer* pRenderer)
 	assert(mpDecoder);
 	assert(mpRenderer);
 
+	// setup the frame averages
+	mFrameTimes.resize(mFramesToAverageOver);
+
+	for (int i = 0; i < mFramesToAverageOver; i++)
+	{
+		mFrameTimes[i] = 0;
+	}
+
+	// start the worker thread
 	_beginthread(DecoderFunction,  0, this);
 	_beginthread(RendererFunction, 0, this);
 }
@@ -86,6 +95,8 @@ void CJitterBuffer::ReceivePacket(const char*	pBuffer,
 				   (mFrames[mLastCompletedFrameReceived + 1]->Completed()))
 			{
                 mLastCompletedFrameReceived++;
+
+				addNewFrameTime(mFrames[mLastCompletedFrameReceived]->Time());
 
                 CFrame* pFrame = mFrames[mLastCompletedFrameReceived];
                 mFrames.erase(mLastCompletedFrameReceived);
@@ -141,9 +152,27 @@ void CJitterBuffer::ServiceRenderer()
 
 			mRendererQueue.QueueFreeBuffer(pRenderable);
 		}
+
+		Sleep(mMeanFrameReceivedTime);
 	}
 
 	mbRendererThreadFinished = true;
+}
+
+void CJitterBuffer::addNewFrameTime(const DWORD frameTime)
+{
+	const int framePosition = frameTime & (mFramesToAverageOver - 1);
+
+	mFrameTimes[framePosition] = frameTime;
+
+	DWORD total = 0;
+
+	for (int i = 0; i < mFramesToAverageOver; i++)
+	{
+		total += mFrameTimes[i]; 
+	}
+
+	mMeanFrameReceivedTime = total / mFramesToAverageOver;
 }
 
 CJitterBuffer::~CJitterBuffer()

@@ -3,6 +3,8 @@
 
 #include <map>
 #include <deque>
+#include <vector>
+#include <windows.h>
 
 #include "JitterBufferInterface.h"
 #include "BufferQueue/BufferQueue.h"
@@ -36,6 +38,8 @@ public:
     void ServiceRenderer();
 
 private:
+	void addNewFrameTime(const DWORD frameTime);
+
     std::deque<CFrame*>         mFreeFrames;
 	std::map <int, CFrame*>	    mFrames;
 
@@ -53,6 +57,11 @@ private:
 
 	bool						mbDecoderThreadFinished;
 	bool						mbRendererThreadFinished;
+
+	std::vector<DWORD>			mFrameTimes;	
+	DWORD						mMeanFrameReceivedTime;
+
+	static const int			mFramesToAverageOver = 32; // This needs to be a power of two
 };
 
 #endif // _C_JITTER_BUFFER_H
