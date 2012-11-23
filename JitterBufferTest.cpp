@@ -25,7 +25,32 @@ int main(int argc, char* argv[])
 
 	IJitterBuffer* pJitterBuffer = new CJitterBuffer(pDecoder, pRenderer);
 
+	// Test basic operation
 	for (int frame = 0; frame < framesToTest; frame++)
+	{
+		for (int fragment = 0; fragment < fragmentsPerFrame; fragment++)
+		{
+			pJitterBuffer->ReceivePacket(buffer, bufferSize, frame, fragment, fragmentsPerFrame);
+		}
+	}
+
+	// Test late frames
+	for (int fragment = 1; fragment < fragmentsPerFrame; fragment++)
+	{
+		pJitterBuffer->ReceivePacket(buffer, bufferSize, framesToTest, fragment, fragmentsPerFrame);
+	}
+
+	for (int frame = framesToTest + 1 ; frame < framesToTest + 11; frame++)
+	{
+		for (int fragment = 0; fragment < fragmentsPerFrame; fragment++)
+		{
+			pJitterBuffer->ReceivePacket(buffer, bufferSize, frame, fragment, fragmentsPerFrame);
+		}
+	}
+
+	pJitterBuffer->ReceivePacket(buffer, bufferSize, framesToTest, 0, fragmentsPerFrame);
+
+	for (int frame = framesToTest + 11; frame < framesToTest + 20; frame++)
 	{
 		for (int fragment = 0; fragment < fragmentsPerFrame; fragment++)
 		{
